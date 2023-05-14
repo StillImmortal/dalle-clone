@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model } from 'mongoose'
 
 const PostSchema = new Schema({
   name: {
@@ -15,7 +15,7 @@ const PostSchema = new Schema({
   },
 })
 
-const Post = models.Post || model('Post', PostSchema)
+const Post = mongoose.models.Post || model('Post', PostSchema)
 
 export default Post
 

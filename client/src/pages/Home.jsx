@@ -26,21 +26,14 @@ const Home = () => {
 
   const [searchText, setSearchText] = useState('')
 
-  const [searchTimeout, setSearchTimeout] = useState(null);
-
   const handleSearchChange = (e) => {
-    clearTimeout(searchTimeout)
     const value = e.target.value
     setSearchText(value);
 
-    setSearchTimeout(
-      setTimeout(() => {
-        dispatch(search({
-          text: value,
-          data: posts.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()) || item.prompt.toLowerCase().includes(value.toLowerCase()))
-        }))
-      }, 500)
-    )  
+    dispatch(search({
+      text: value,
+      data: posts.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()) || item.prompt.toLowerCase().includes(value.toLowerCase()))
+    }))
   };
 
   useEffect(() => {
